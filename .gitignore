@@ -47,4 +47,4 @@ specsh-rxdb*
 
 keys.txt
 
-/logs/
+*.log
