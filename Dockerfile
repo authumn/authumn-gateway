@@ -27,4 +27,4 @@ COPY ./backend-not-found.html /var/www/html/backend-not-found.html
 
 RUN chmod +x /start.sh
 
-RUN /start.sh
+ENTRYPOINT ["/start.sh"]
