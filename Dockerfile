@@ -21,6 +21,7 @@ RUN luarocks install lua-resty-openidc
 COPY ./conf /conf
 COPY ./certs /certs
 COPY ./logs /logs
+COPY ./start.sh /start.sh
 
 COPY ./backend-not-found.html /var/www/html/backend-not-found.html
 
