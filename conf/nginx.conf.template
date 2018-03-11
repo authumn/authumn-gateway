@@ -18,9 +18,6 @@ http {
 
   sendfile on;
 
-  # don't really want them on disk..
-  # error_log "/logs/error.log;
-  error_log "/logs/error.log" debug;
   access_log "/logs/access.log";
 
   keepalive_timeout 65;
