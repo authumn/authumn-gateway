@@ -24,9 +24,4 @@ COPY ./logs /logs
 
 COPY ./backend-not-found.html /var/www/html/backend-not-found.html
 
-RUN envsubst \
-  '$TOKEN_URL $USER_URL $API_URL $SERVER_NAME' < \
-   conf/nginx.conf.template > \
-   conf/nginx.conf
-
-ENTRYPOINT ["/usr/local/openresty/bin/openresty", "-g", "daemon off;", "-c", "/conf/nginx.conf"]
+ENTRYPOINT ["./start.sh"]
