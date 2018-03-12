@@ -48,3 +48,4 @@ specsh-rxdb*
 keys.txt
 
 *.log
+conf/nginx.conf
