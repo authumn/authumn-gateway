@@ -3,6 +3,7 @@ local REDIS_HOST = os.getenv('REDIS_HOST') or '127.0.0.1'
 local REDIS_PORT = os.getenv('REDIS_PORT') or 6379
 local REDIS_DB = os.getenv('REDIS_DB') or 0
 local REDIS_AUTH = os.getenv('REDIS_AUTH')
+local red
 -- set $REDIS_HOST "127.0.0.1";
 -- set $REDIS_PORT 6379;
 -- set $REDIS_DB 1;

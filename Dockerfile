@@ -8,6 +8,11 @@ ENV USER_URL http://localhost:2302/user
 ENV API_URL http://localhost:2303/api
 ENV SERVER_NAME authumn
 
+ENV REDIS_HOST "127.0.0.1";
+ENV REDIS_PORT 6379;
+ENV REDIS_DB 1;
+ENV REDIS_AUTH ''
+
 EXPOSE 80
 
 RUN apk update
