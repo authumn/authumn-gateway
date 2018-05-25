@@ -37,4 +37,4 @@ requests to this server. The mount point is /api
 
 ## Redis
 
-## Error logging and propegation.
+## Error logging and propagation.

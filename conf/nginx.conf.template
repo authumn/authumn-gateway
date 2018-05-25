@@ -45,7 +45,7 @@ http {
     #
     # Token Auth Service
     #
-    location /api/auth {
+    location $MOUNT_POINT/auth {
         include /conf/includes/cors.conf;
         include /conf/includes/proxy.conf;
         proxy_pass $TOKEN_URL;
@@ -54,7 +54,7 @@ http {
     #
     # User Service
     #
-    location /api/user {
+    location $MOUNT_POINT/user {
         include /conf/includes/cors.conf;
         include /conf/includes/proxy.conf;
         proxy_pass $USER_URL;
@@ -63,7 +63,7 @@ http {
     #
     # Api service
     #
-    location /api {
+    location $MOUNT_POINT {
         include /conf/includes/cors.conf;
         access_by_lua_file /conf/includes/check.lua;
 

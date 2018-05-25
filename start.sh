@@ -1,6 +1,6 @@
 #!/bin/sh
 envsubst \
-  '$TOKEN_URL $USER_URL $API_URL $SERVER_NAME' < \
+  '$TOKEN_URL $USER_URL $API_URL $SERVER_NAME $MOUNT_POINT' < \
    conf/nginx.conf.template > \
    conf/nginx.conf
 
