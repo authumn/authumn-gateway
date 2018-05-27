@@ -63,7 +63,7 @@ http {
     #
     # Api service
     #
-    location $MOUNT_POINT {
+    location $MOUNT_POINT/ {
         include /conf/includes/cors.conf;
         access_by_lua_file /conf/includes/check.lua;
 
