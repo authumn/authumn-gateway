@@ -7,6 +7,7 @@ env REDIS_HOST;
 env REDIS_PORT;
 env REDIS_DB;
 env REDIS_AUTH;
+env MOUNT_POINT;
 
 events {
   worker_connections 1024;
@@ -63,7 +64,7 @@ http {
     #
     # Api service
     #
-    location $MOUNT_POINT/ {
+    location $MOUNT_POINT {
         include /conf/includes/cors.conf;
         access_by_lua_file /conf/includes/check.lua;
 

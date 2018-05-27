@@ -28,9 +28,6 @@
   "config": {
     "ghooks": {
       "pre-commit": "npm test"
-    },
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
     }
   },
   "release": {
