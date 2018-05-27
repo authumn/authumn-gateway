@@ -1,0 +1,52 @@
+{
+  "name": "authumn-gateway",
+  "version": "0.0.0-development",
+  "description": "Proxy gateway server",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test.disable": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/authumn/authumn-gateway.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/authumn/authumn-gateway/issues"
+  },
+  "homepage": "https://github.com/authumn/authumn-gateway#readme",
+  "devDependencies": {
+    "semantic-release": "^15.5.0",
+    "semantic-release-docker": "^2.1.0",
+    "travis-deploy-once": "^5.0.0"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm test"
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/npm",
+      "semantic-release-docker"
+    ],
+    "publish": [
+      {
+        "path": "@semantic-release/npm",
+        "npmPublish": false
+      },
+      {
+        "path": "semantic-release-docker",
+        "name": "authumn/gateway"
+      }
+    ]
+  }
+}
