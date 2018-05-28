@@ -1,12 +1,11 @@
 FROM openresty/openresty:alpine-fat
 
-# Should match with the JWT_SECRET of the token service.
 ENV JWT_SECRET change_me
 
 ENV TOKEN_URL http://localhost:2301/token
 ENV USER_URL http://localhost:2302/user
 ENV API_URL http://localhost:2303/api
-ENV SERVER_NAME authumn
+ENV SERVER_NAME authumn-gateway
 
 ENV REDIS_HOST "127.0.0.1";
 ENV REDIS_PORT 6379;
@@ -30,7 +29,7 @@ COPY ./certs /certs
 COPY ./logs /logs
 COPY ./start.sh /start.sh
 
-COPY ./backend-not-found.html /var/www/html/backend-not-found.html
+COPY ./www/*.html /usr/local/openresty/nginx/html/
 
 RUN chmod +x /start.sh
 
