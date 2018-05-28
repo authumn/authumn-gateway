@@ -1,40 +1,54 @@
-# Authumn Nginx
+# Authumn Gateway Service
 
-Proxy gateway server
+The Authumn Gateway service is a minimum setup to protect a single api endpoint.
+ 
+In conjunction with the Token & User service it offers a simple registration and login flow,
+which enables the user to access the protected api.
 
-### Hosts
+Once a user has received a valid token the Authumn Gateway service will take care of the authorization to the `Api Service`.
 
-Nginx is configured to serve the following hosts
+Access to the `Api service` requires a valid token issued by the token service.
 
-#### [4200] Angular Frontend
+Cors is automatically handled for all backend services. 
 
-This is the angular frontend in development mode.
-The proxy is configured to also understand hot reloading.
+## Backend Services 
 
-In production angular is statically.
+The gateway service is configured to proxy to the following backend services.
 
-### [2301] Token Server
+### [2301] [Token Service](https://github.com/authumn-token)
 
-This is the token server. Currently configured to handle token issueing.
+This is the token service.
 
-It depends on the user server being available because it will make 
-an authentication request to verify email and password.
+It depends on the user service being available while it will make an authentication request to verify email and password.
 
-The user server itself is never accessed directly, only in development mode.
+The token service will be available at: `https://<authumn_gateway_url>/<MOUNT_POINT>/token`
 
-So this service should just be made available and will not be handled by the proxy server.
+### [2302] [User Service](https://github.com/authumn-user)
 
-### [2302] User Server
+The user service handles the registration and logins.
 
-As said, this server will not be targeted by nginx.
-However it must be made available internally.
+The user service will be available at: `https://<authumn_gateway_url>/<MOUNT_POINT>/user`
 
-### [2303] Api server
+### [2303] Api service
 
-This is the main api server, the proxy will route authenticated
-requests to this server. The mount point is /api
+This is the main api service, the proxy will route authenticated requests to this service.
+By default the mount point is /v1
 
+The token service will be available at: `https://<authumn_gateway_url>/<MOUNT_POINT>/`
 
-## Redis
+### Docker
 
-## Error logging and propagation.
+The following environment variables can be configured:
+
+|Name|Type|Description|Default|
+|---|---|---|---|
+|`SERVER_NAME`|String|Server Name|`authumn-gateway`|
+|`TOKEN_URL`|String|Url of the [Token Service](https://github.com/authumn/authumn-token)|`http://localhost:2301/token`|
+|`USER_URL`|String|Url of the [User Service](https://github.com/authumn/authumn-user)|`http://localhost:2302/user`|
+|`API_URL`|String|Api Service Url|`http://localhost:2303/api`|
+|`JWT_SECRET`|String|JWT Secret to sign the tokens|`change_me`|
+|`REDIS_HOST`|String|Redis host of the [token service]()|`localhost`|
+|`REDIS_PORT`|String|Redis port of the [token service](https://github.com/authumn/authumn-token)|`6379`|
+|`REDIS_DATABASE`|Number|Redis database used by the [token service](https://github.com/authumn/authumn-token)|`1`|
+|`REDIS_AUTH`|String|Redis auth used by the [token service](https://github.com/authumn/authumn-token)||
+|`MOUNT_POINT`|String|Mount point|/v1|
