@@ -4,7 +4,7 @@ ENV JWT_SECRET change_me
 
 ENV TOKEN_URL http://localhost:2301/token
 ENV USER_URL http://localhost:2302/user
-ENV API_URL http://localhost:2303/api
+ENV API_URL http://localhost:2303/
 ENV SERVER_NAME authumn-gateway
 
 ENV REDIS_HOST "127.0.0.1";
