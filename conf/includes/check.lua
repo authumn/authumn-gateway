@@ -24,7 +24,11 @@ end
 ngx.log(ngx.DEBUG, "Made it!")
 ngx.log(ngx.DEBUG, cjson.encode(json))
 
-local result = utils.redkey('tokens:' .. json.jti)
+local redisKey = 'tokens:' .. json.jti
+
+ngx.log(ngx.DEBUG, 'checking for key' .. redisKey)
+
+local result = utils.redkey(redisKey)
 ngx.log(ngx.DEBUG, cjson.encode(result))
 
 if result < 1 then
