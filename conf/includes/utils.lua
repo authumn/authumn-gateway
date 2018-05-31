@@ -23,7 +23,7 @@ function utils.redis_connect()
     if REDIS_AUTH then
         local ok, err = red:auth(REDIS_AUTH)
         if not ok then
-            ngx.log("failed to authenticate: ", err)
+            ngx.log(ngx.ERR, "failed to authenticate: ", err)
             return nil
         end
     end
@@ -31,7 +31,7 @@ function utils.redis_connect()
     if REDIS_DB then
         local ok, err = red:select(REDIS_DB)
         if not ok then
-            ngx.log("failed to select db: ", REDIS_DB, " ", err)
+            ngx.log(ngx.ERR, "failed to select db: ", REDIS_DB, " ", err)
             return nil
         end
     end
