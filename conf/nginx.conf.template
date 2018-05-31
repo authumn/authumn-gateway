@@ -19,6 +19,8 @@ http {
 
   sendfile on;
 
+  resolver $RESOLVER;
+
   access_log "/logs/access.log";
 
   keepalive_timeout 65;
