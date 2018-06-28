@@ -69,6 +69,7 @@ http {
     location $MOUNT_POINT/ {
         include /conf/includes/cors.conf;
         access_by_lua_file /conf/includes/check.lua;
+        add_header 'Access-Control-Expose-Headers' 'Link';
 
         proxy_pass $API_URL;
     }
