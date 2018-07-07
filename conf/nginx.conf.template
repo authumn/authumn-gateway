@@ -2,6 +2,7 @@
 worker_processes 1;
 
 env JWT_SECRET;
+env JWT_POLICY;
 #env JWT_SECRET_IS_BASE64_ENCODED;
 env REDIS_HOST;
 env REDIS_PORT;
