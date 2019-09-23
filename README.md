@@ -15,7 +15,7 @@ Cors is automatically handled for all backend services.
 
 The gateway service is configured to proxy to the following backend services.
 
-### [2301] [Token Service](https://gitlab.com/authumn-token)
+### [2301] [Token Service](https://github.com/authumn/authumn-token)
 
 This is the token service.
 
@@ -23,7 +23,7 @@ It depends on the user service being available while it will make an authenticat
 
 The token service will be available at: `https://<authumn_gateway_url>/<MOUNT_POINT>/token`
 
-### [2302] [User Service](https://gitlab.com/authumn-user)
+### [2302] [User Service](https://github.com/authumn/authumn-user)
 
 The user service handles the registration and logins.
 
@@ -43,12 +43,12 @@ The following environment variables can be configured:
 |Name|Type|Description|Default|
 |---|---|---|---|
 |`SERVER_NAME`|String|Server Name|`authumn-gateway`|
-|`TOKEN_URL`|String|Url of the [Token Service](https://gitlab.com/authumn/authumn-token)|`http://localhost:2301/token`|
-|`USER_URL`|String|Url of the [User Service](https://gitlab.com/authumn/authumn-user)|`http://localhost:2302/user`|
+|`TOKEN_URL`|String|Url of the [Token Service](https://github.com/authumn/authumn-token)|`http://localhost:2301/token`|
+|`USER_URL`|String|Url of the [User Service](https://github.com/authumn/authumn-user)|`http://localhost:2302/user`|
 |`API_URL`|String|Api Service Url|`http://localhost:2303/api`|
 |`JWT_SECRET`|String|JWT Secret to sign the tokens|`change_me`|
 |`REDIS_HOST`|String|Redis host of the [token service]()|`localhost`|
-|`REDIS_PORT`|String|Redis port of the [token service](https://gitlab.com/authumn/authumn-token)|`6379`|
-|`REDIS_DATABASE`|Number|Redis database used by the [token service](https://gitlab.com/authumn/authumn-token)|`1`|
-|`REDIS_AUTH`|String|Redis auth used by the [token service](https://gitlab.com/authumn/authumn-token)||
+|`REDIS_PORT`|String|Redis port of the [token service](https://github.com/authumn/authumn-token)|`6379`|
+|`REDIS_DATABASE`|Number|Redis database used by the [token service](https://github.com/authumn/authumn-token)|`1`|
+|`REDIS_AUTH`|String|Redis auth used by the [token service](https://github.com/authumn/authumn-token)||
 |`MOUNT_POINT`|String|Mount point|/v1|
