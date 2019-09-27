@@ -32,6 +32,8 @@ RUN luarocks install lua-resty-jwt
 RUN luarocks install lua-resty-openidc
 RUN luarocks install lustache
 
+RUN eval $(luarocks path --bin)
+
 COPY ./conf /conf
 COPY ./certs /certs
 COPY ./logs /logs
