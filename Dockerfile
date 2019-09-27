@@ -1,5 +1,8 @@
 FROM openresty/openresty:alpine-fat
 
+ENV LUA_VERSION 5.2
+ENV LUA_PACKAGE lua${LUA_VERSION}
+
 ENV JWT_SECRET change_me
 
 ENV TOKEN_URL http://localhost:2301/token
@@ -23,6 +26,8 @@ EXPOSE 80
 
 RUN apk update
 RUN apk add openssl-dev git
+
+RUN apk add ${LUA_PACKAGE}
 
 RUN luarocks install lua-resty-http
 RUN luarocks install lua-resty-session
