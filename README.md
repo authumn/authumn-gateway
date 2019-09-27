@@ -52,3 +52,7 @@ The following environment variables can be configured:
 |`REDIS_DATABASE`|Number|Redis database used by the [token service](https://github.com/authumn/authumn-token)|`1`|
 |`REDIS_AUTH`|String|Redis auth used by the [token service](https://github.com/authumn/authumn-token)||
 |`MOUNT_POINT`|String|Mount point|/v1|
+|`API_{x}_URL`|String|Additional Api Service Url|`e.g. http://localhost:2309`|
+|`API_{x}_MOUNT_POINT`|String|Additional Api Mount point |`e.g. /other-api`|
+
+
