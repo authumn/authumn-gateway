@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/authumn/authumn-gateway#readme",
   "devDependencies": {
-    "semantic-release": "^15.5.0",
+    "semantic-release": "^17.2.3",
     "semantic-release-docker": "^2.1.0",
     "travis-deploy-once": "^5.0.0"
   },
